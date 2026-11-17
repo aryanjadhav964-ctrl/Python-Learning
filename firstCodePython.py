@@ -10,7 +10,8 @@ promo_code = ""
 #casting data
 base_price = int(base_price)
 surge_multiplier = float(surge_multiplier)
-delivery_distance_km = float(delivery_distance_km)
+#want the km value in integer
+delivery_distance_km = int(float(delivery_distance_km))
 is_rain_surge_active = True if is_rain_surge_active == "True" else False
 promo_code = bool(promo_code)
 
