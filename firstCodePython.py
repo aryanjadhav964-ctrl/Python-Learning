@@ -11,7 +11,7 @@ promo_code = ""
 base_price = int(base_price)
 surge_multiplier = float(surge_multiplier)
 delivery_distance_km = float(delivery_distance_km)
-is_rain_surge_active = bool(is_rain_surge_active)
+is_rain_surge_active = True if is_rain_surge_active == "True" else False
 promo_code = bool(promo_code)
 
 #testing
