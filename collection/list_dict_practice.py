@@ -32,3 +32,46 @@ for x in low_stock_alerts:
     print(f"{x["model"]} (only {x["stock"]} left)")
 
 
+#### question 2 : lead grouping and frequency counter [Dynamic Dictionary Building] ####
+# Your Adhyatma Yoga website collected raw lead submissions throughout the day, stored as a list of dictionaries. Some inquiries are missing a "source" key.
+
+# task 
+# Build a dictionary named batch_counts that dynamically counts how many leads requested each batch (e.g., {'morning': 3, 'evening': 1, 'weekend': 1}).
+
+# Create a list named instagram_leads containing only the names ("Sneha", "Priya") of leads who came from "Instagram". (Hint: Use .get("source") so your code doesn't throw a KeyError on leads missing the "source" key!)
+
+# Print batch_counts and instagram_leads.
+
+raw_leads = [
+    {"name": "Rohan", "batch": "morning"},
+    {"name": "Sneha", "batch": "evening", "source": "Instagram"},
+    {"name": "Amit", "batch": "morning", "source": "Google"},
+    {"name": "Priya", "batch": "morning", "source": "Instagram"},
+    {"name": "Karan", "batch": "weekend"}
+]
+
+# batch counting #
+batch_count = {
+    "morning" : 0,
+    "evening" : 0,
+    "weekends" : 0
+}
+
+for x in raw_leads:
+    if x["batch"] == "morning":
+        batch_count["morning"] = batch_count["morning"]+1
+    elif x["batch"] == "evening":
+        batch_count["evening"] = batch_count["evening"]+1
+    else:
+        batch_count["weekends"] = batch_count["weekends"]+1
+
+
+# separating leads according to their source  # 
+instagram_leads = []
+
+for x in raw_leads:
+    if x.get("source") == "Instagram":
+        instagram_leads.append(x["name"])
+
+print(batch_count)
+print(f"From Instagram : {instagram_leads}")
